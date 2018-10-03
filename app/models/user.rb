@@ -6,4 +6,9 @@ class User < ApplicationRecord
 
   has_many :orders, :dependent => :destroy
   has_many :products, through: :orders
+
+  geocoded_by :address
+  after_validation :geocode
+
+  enum role: [:admin, :visit]
 end

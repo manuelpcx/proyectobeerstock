@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'geocoder/findaddress'
   resources :products do
     resources :orders, only: :create
   end
