@@ -4,7 +4,7 @@
     <title>Beerstock</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -21,8 +21,8 @@
         <%= alert %>
       </div>
     <% end %>
-    <div class="container">
+
     <%= yield %>
-  </div>
+  
   </body>
 </html>
