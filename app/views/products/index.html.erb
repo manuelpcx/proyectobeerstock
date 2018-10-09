@@ -1,3 +1,4 @@
+<div class="productos">
 <div class="container">
   <div class="row">
     <% @products.each_slice(4) do |row| %>
@@ -10,8 +11,12 @@
               <p> $<%= product.price %> </p>
               <%= link_to "Agregar al carro", product_orders_path(product), class: 'btn btn-success', method: :post  %>
               <%= link_to "show", product, class: 'btn btn-primary' %>
+              <% if can?(:edit, product)%>
               <%= link_to "edit", edit_product_path(product), class:'btn btn-info' %>
+              <% end %>
+              <% if can?(:destroy, product)%>
               <%= link_to "Destroy",product, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger'   %>
+              <% end %>
             </div>
           </div>
         </div>
@@ -20,6 +25,7 @@
     <% end %>
   </div>
 </div>
-
-
+</div>
+<% if can?(:create, @products)%>
 <%= link_to 'New Product', new_product_path %>
+<% end %>
